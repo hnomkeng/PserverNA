@@ -1,0 +1,11 @@
+[default]
+key_anticap = 
+server_id =
+userid  =
+proxy =
+maxvote = 0
+
+[VPN]
+VPN = 0
+USER =
+PASS =
