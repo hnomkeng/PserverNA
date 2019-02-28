@@ -3,7 +3,7 @@
 config.txt                                                                                          :
 ----------------------------------------------------------------------------------------------------
 [default]
-key_anticap = # key [https://anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw)
+key_anticap = # key [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw)
 server_id = # server ที่ต้องการโหวต
 userid  = # user ที่ใช้โหวต
 proxy = proxylist.txt
