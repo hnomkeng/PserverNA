@@ -1,11 +1,11 @@
 [default]
-key_anticap = 
+key_anticap =
 server_id = 
 userid  =
-proxy = proxylist.txt 
-maxvote =
+proxy = proxylist.txt
+maxvote = 10000
 
 [VPN]
-VPN =
+VPN = 0
 USER =
-PASS = 
+PASS =
