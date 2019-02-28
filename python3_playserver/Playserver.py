@@ -46,44 +46,47 @@ class POST_ANTICAPTCHA:
                     self.proxywork -= 1
                     return 0
                 titlechang(self)
-                IMAGE = GETIMAGE(self,IP,url_getpic,url_image,header)
-                if IMAGE != 0:
-                    captcha = GETCAPCHA(key,IMAGE['base64'])
-                    if captcha['status'] != False:
-                        MYSLEEP = SLEEPDELAY(DELAY)
-                        DELAY = 0
-                        e = threading.Event()
-                        e.wait(timeout=MYSLEEP)
-                        vote_data = {"server_id":server_id,"captcha": captcha['text'], "gameid": userid, "checksum": IMAGE['id']}
-                        vote = POSTIMAGE(self,IP,vote_data,url_submitpic,header)
-                        DELAY = SETDELAY(vote['wait'])
-                        if vote['status'] == True:
-                            log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
-                            print(Fore.GREEN+log, flush=True)
-                            print(Style.RESET_ALL, flush=True)
-                        elif vote['status'] == False:
-                            PRoxyDie += 1
-                            log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
-                            print(Fore.YELLOW+log, flush=True)
-                            print(Style.RESET_ALL, flush=True)
-                        else:
-                            if vote['error_mesg'] == 'b4ecb33fc4dd1515eae17c9afcf8b90d': #The image has expired or has been used.
+                try:
+                    IMAGE = GETIMAGE(self,IP,url_getpic,url_image,header)
+                    if IMAGE != 0:
+                        captcha = GETCAPCHA(key,IMAGE['base64'])
+                        if captcha['status'] != False:
+                            MYSLEEP = SLEEPDELAY(DELAY)
+                            DELAY = 0
+                            e = threading.Event()
+                            e.wait(timeout=MYSLEEP)
+                            vote_data = {"server_id":server_id,"captcha": captcha['text'], "gameid": userid, "checksum": IMAGE['id']}
+                            vote = POSTIMAGE(self,IP,vote_data,url_submitpic,header)
+                            DELAY = SETDELAY(vote['wait'])
+                            if vote['status'] == True:
                                 log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
-                                print(Fore.RED+log, flush=True)
+                                print(Fore.GREEN+log, flush=True)
                                 print(Style.RESET_ALL, flush=True)
-                                break
+                            elif vote['status'] == False:
+                                PRoxyDie += 1
+                                log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
+                                print(Fore.YELLOW+log, flush=True)
+                                print(Style.RESET_ALL, flush=True)
                             else:
-                                if vote['error_mesg'] == '47b84f936cfa1a104fa5d44821639363': # The code in the image is incorrect.
-                                    reprot = reportIncorrectImageCaptcha(key,captcha['taskId'])
-                                    if reprot['errorId'] == 0:
-                                        log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
-                                        print(Fore.RED+log, flush=True)
-                                        print(Style.RESET_ALL, flush=True)
+                                if vote['error_mesg'] == 'b4ecb33fc4dd1515eae17c9afcf8b90d': #The image has expired or has been used.
+                                    log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
+                                    print(Fore.RED+log, flush=True)
+                                    print(Style.RESET_ALL, flush=True)
+                                    break
+                                else:
+                                    if vote['error_mesg'] == '47b84f936cfa1a104fa5d44821639363': # The code in the image is incorrect.
+                                        reprot = reportIncorrectImageCaptcha(key,captcha['taskId'])
+                                        if reprot['errorId'] == 0:
+                                            log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
+                                            print(Fore.RED+log, flush=True)
+                                            print(Style.RESET_ALL, flush=True)
 
+                        else:
+                            print('this captcha time out ')
                     else:
-                        print('this captcha time out ')
-                else:
-                    PRoxyDie += 1
+                        PRoxyDie += 1
+                except:
+                    print(' disconnected from  network ')
 
 
 
