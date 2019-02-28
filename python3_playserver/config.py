@@ -4,7 +4,6 @@ import urllib.parse
 from msvcrt import getch
 from python3_anticaptcha import GETbalance,GETbalance
 
-
 loadconfig = configparser.RawConfigParser()
 loadconfig.readfp(open(r'control/config.txt'))
 key = loadconfig.get('default', 'key_anticap')
