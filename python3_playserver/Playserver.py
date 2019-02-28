@@ -86,8 +86,7 @@ class POST_ANTICAPTCHA:
                     else:
                         PRoxyDie += 1
                 except:
-                    print(' disconnected from  network ')
-
-
+                    PRoxyDie += 1
+            return 0
 
         run(self)
