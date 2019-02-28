@@ -4,8 +4,7 @@ import urllib.parse
 from msvcrt import getch
 from python3_anticaptcha import GETbalance,GETbalance
 
-ver_ = '1.0.1'
-src_path = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/version.json'
+
 loadconfig = configparser.RawConfigParser()
 loadconfig.readfp(open(r'control/config.txt'))
 key = loadconfig.get('default', 'key_anticap')
