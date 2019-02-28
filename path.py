@@ -1,0 +1,10 @@
+class path:
+    version = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/version.json'
+    init_anti = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_anticaptcha/__init__.py'
+    config_anti = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_anticaptcha/config.py'
+    request_anti = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_anticaptcha/request_anitcapcha.py'
+    init_pay = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_playserver/__init__.py'
+    delay_pay = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_playserver/DELAY.py'
+    Playserver_pay = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_playserver/Playserver.py'
+    config_pay = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_playserver/config.py'
+    request_pay = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/python3_playserver/request_playserver.py'
