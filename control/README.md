@@ -3,15 +3,23 @@
 config.txt                                                                                          :
 ----------------------------------------------------------------------------------------------------
 [default]
+
 key_anticap = # key [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw)
+
 server_id = # server ที่ต้องการโหวต
+
 userid  = # user ที่ใช้โหวต
+
 proxy = proxylist.txt
+
 maxvote = # หยุดโปรแกรมเมื่อโหวตถึงจำนวนที่ตั้่งไว้ ** ควรตั่งให้มากกว่า PROXY หรือ VPN ที่ใช้ ค่าตั่ง 1 ขึ้นไป
 
 [VPN]
+
 VPN = # mode vpn ปิด 0 /เปิด 1
+
 USER = # user VPN
+
 PASS = # pass VPN
 
 -----------------------------------------------------------------------------------------------------
