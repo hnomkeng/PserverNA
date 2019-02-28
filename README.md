@@ -2,10 +2,9 @@
 
 ### PserverNA
 ```python
-PserverNA มีอะไรแตกจาก PserverN
+PserverNA มีอะไรแตกต่างจาก PserverN
 #  - เปลี่ยนการเชื่อมต่อจาก 2captcha.com มาเป็น anti-captcha.com
 #  - เพิ่มระบบ VPN 
-#  - ระบบจะคัดไอพีที่พลาดเกินจำนวน 3 ครั้ง ออก
 ```
 **สมัคร [Anticapcha](http://getcaptchasolution.com/e80kqlwlmw) สำหรับเพื่อรับ Key**
 
