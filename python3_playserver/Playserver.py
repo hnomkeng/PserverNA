@@ -42,9 +42,9 @@ class POST_ANTICAPTCHA:
             DELAY = 0
             PRoxyDie = 0
             while (self.true < int(maxvote)):
-                if PRoxyDie > 3:
+                if PRoxyDie > 10:
                     self.proxywork -= 1
-                    return 0
+                    break
                 titlechang(self)
                 try:
                     IMAGE = GETIMAGE(self,IP,url_getpic,url_image,header)
