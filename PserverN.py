@@ -39,13 +39,13 @@ if version != checkver['ver_']:
     request_pay = requests.get(path.request_pay).content
     data = {
         init_anti : "python3_anticaptcha/__init__.py",
-        config_anti : "python3_anticaptcha/__init__.py",
-        request_anti : "python3_anticaptcha/__init__.py",
-        init_pay : "python3_anticaptcha/__init__.py",
-        delay_pay : "python3_anticaptcha/__init__.py",
-        Playserver_pay : "python3_anticaptcha/__init__.py",
-        config_pay : "python3_anticaptcha/__init__.py",
-        request_pay : "python3_anticaptcha/__init__.py"
+        config_anti : "python3_anticaptcha/config.py",
+        request_anti : "python3_anticaptcha/request_anitcapcha.py",
+        init_pay : "python3_playserver/__init__.py",
+        delay_pay : "python3_playserver/DELAY.py",
+        Playserver_pay : "python3_playserver/Playserver.py",
+        config_pay : "python3_playserver/config.py",
+        request_pay : "python3_playserver/request_playserver.py"
     }
     for pathx in data:
         with open(data[pathx],'wb') as w:
