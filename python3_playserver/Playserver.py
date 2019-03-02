@@ -82,19 +82,22 @@ class POST_ANTICAPTCHA:
                                             print(Style.RESET_ALL, flush=True)
 
                         else:
-                            print(str(myip) + ' thsi proxy has error 101')
                             PRoxyDie += 1
                             if PRoxyDie > 10:
+                                print(str(myip) + ' thsi proxy has error 101')
+                                self.proxywork -= 1
                                 startloop = 1
                     else:
-                        print(str(myip) + ' thsi proxy has error 102')
                         PRoxyDie += 1
                         if PRoxyDie > 10:
+                            print(str(myip) + ' thsi proxy has error 102')
+                            self.proxywork -= 1
                             startloop = 1
                 except:
-                    print(str(myip) + ' thsi proxy has error 103')
                     PRoxyDie += 1
                     if PRoxyDie > 10:
+                        print(str(myip) + ' thsi proxy has error 103')
+                        self.proxywork -= 1
                         startloop = 1
 
         run(self)

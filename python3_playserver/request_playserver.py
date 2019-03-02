@@ -6,7 +6,7 @@ def GETIMAGE(self,IP,url_getpic,url_image,header):
         IMAGE_ID = requestid['checksum']
         IMAGECT = requests.post((url_image+IMAGE_ID),headers=header, proxies=IP)
         base64pic = base64.b64encode(IMAGECT.content).decode('utf-8')
-        if base64pic.find('iVBORw0KGgoAAAANSUhEUgAAARgAAABYCAIAAAChw38DAAA') > -1:
+        if base64pic.find('iVBORw0KGgoAAAANSUhE') > -1:
             IMAGE = {'id':IMAGE_ID,'base64':base64pic}
             return IMAGE
     except:
@@ -25,7 +25,7 @@ def POSTIMAGE(self,IP,vote_data,url_submitpic,header):
                     self.fail += 1
                     erro_message = (vote['error_msg'].encode('utf8').hex())
                     md5_error = hashlib.md5(binascii.unhexlify(erro_message)).hexdigest()
-                    datax = {'status':False,'wait':vote['wait'],'error_mesg':md5_error} 
+                    datax = {'status':False,'wait':vote['wait'],'error_mesg':md5_error}
                     return datax
                 else:
                     self.fail += 1
