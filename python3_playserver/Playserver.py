@@ -80,19 +80,19 @@ class POST_ANTICAPTCHA:
                                             log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                             print(Fore.RED+log, flush=True)
                                             print(Style.RESET_ALL, flush=True)
-                                            
+
                         else:
-                            print(myip + ' thsi proxy has error 101')
+                            print(str(myip) + ' thsi proxy has error 101')
                             PRoxyDie += 1
                             if PRoxyDie > 10:
                                 startloop = 1
                     else:
-                        print(myip + ' thsi proxy has error 102')
+                        print(str(myip) + ' thsi proxy has error 102')
                         PRoxyDie += 1
                         if PRoxyDie > 10:
                             startloop = 1
                 except:
-                    print(myip + ' thsi proxy has error 103')
+                    print(str(myip) + ' thsi proxy has error 103')
                     PRoxyDie += 1
                     if PRoxyDie > 10:
                         startloop = 1
