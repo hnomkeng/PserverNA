@@ -41,10 +41,9 @@ class POST_ANTICAPTCHA:
                 myip = (str(myip)+' [ VPN ]')
             DELAY = 0
             PRoxyDie = 0
-            while (self.true < int(maxvote)):
-                if PRoxyDie > 10:
-                    self.proxywork -= 1
-                    break
+            startloop = 0
+            e = threading.Event()
+            while startloop == 0:
                 titlechang(self)
                 try:
                     IMAGE = GETIMAGE(self,IP,url_getpic,url_image,header)
@@ -53,7 +52,6 @@ class POST_ANTICAPTCHA:
                         if captcha['status'] != False:
                             MYSLEEP = SLEEPDELAY(DELAY)
                             DELAY = 0
-                            e = threading.Event()
                             e.wait(timeout=MYSLEEP)
                             vote_data = {"server_id":server_id,"captcha": captcha['text'], "gameid": userid, "checksum": IMAGE['id']}
                             vote = POSTIMAGE(self,IP,vote_data,url_submitpic,header)
@@ -62,17 +60,19 @@ class POST_ANTICAPTCHA:
                                 log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                 print(Fore.GREEN+log, flush=True)
                                 print(Style.RESET_ALL, flush=True)
-                            elif vote['status'] == False:
-                                PRoxyDie += 1
+                            if vote['status'] == False:
                                 log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                 print(Fore.YELLOW+log, flush=True)
                                 print(Style.RESET_ALL, flush=True)
+                                PRoxyDie += 1
+                                if PRoxyDie > 10:
+                                    startloop = 1
                             else:
                                 if vote['error_mesg'] == 'b4ecb33fc4dd1515eae17c9afcf8b90d': #The image has expired or has been used.
                                     log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                     print(Fore.RED+log, flush=True)
                                     print(Style.RESET_ALL, flush=True)
-                                    break
+                                    startloop = 1
                                 else:
                                     if vote['error_mesg'] == '47b84f936cfa1a104fa5d44821639363': # The code in the image is incorrect.
                                         reprot = reportIncorrectImageCaptcha(key,captcha['taskId'])
@@ -80,13 +80,21 @@ class POST_ANTICAPTCHA:
                                             log = LOGSET.format(myip,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                             print(Fore.RED+log, flush=True)
                                             print(Style.RESET_ALL, flush=True)
-
+                                            
                         else:
-                            print('this captcha time out ')
+                            print(myip + ' thsi proxy has error 101')
+                            PRoxyDie += 1
+                            if PRoxyDie > 10:
+                                startloop = 1
                     else:
+                        print(myip + ' thsi proxy has error 102')
                         PRoxyDie += 1
+                        if PRoxyDie > 10:
+                            startloop = 1
                 except:
+                    print(myip + ' thsi proxy has error 103')
                     PRoxyDie += 1
-            return 0
+                    if PRoxyDie > 10:
+                        startloop = 1
 
         run(self)
