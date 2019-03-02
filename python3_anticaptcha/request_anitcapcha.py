@@ -1,5 +1,5 @@
 import requests,json,time,threading
-from python3_anticaptcha import create_task_url,get_result_url,get_balance_url,header,incorrect_captcha_url
+from python3_anticaptcha import create_task_url,get_result_url,get_balance_url,header,incorrect_captcha_url,appid
 def GETCAPCHA(key,base64):
     Taskdata = {
     "clientKey":key,
@@ -13,7 +13,9 @@ def GETCAPCHA(key,base64):
     "math":0,
     "minLength":6,
     "maxLength":6
-    }
+    },
+    "softId":int(appid),
+    "languagePool":"en"
     }
 
     createTask  = requests.post(create_task_url,json=Taskdata).json()
