@@ -1,11 +1,13 @@
 [default]
-key_anticap =
-server_id = 
-userid  =
+key_anticap = <anitcapcha_key>
+server_id = <server id>
+userid  = <user gmae id>
 proxy = proxylist.txt
-maxvote = 10000
+maxvote = 1
+failvote = 3
 
-[VPN]
-VPN = 0
-USER =
-PASS =
+
+[private]
+private = <private proxy 0 off / 1 om>
+USER = <user proxy>
+PASS = <password proxy>
