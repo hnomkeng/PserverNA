@@ -6,6 +6,7 @@ from requests_P import GETIMAGE,POSTIMAGE
 from DELAY import *
 sys.path.insert(0, "Anticapcha_/")
 from requests_A import GETCAPCHA,reportIncorrectImageCaptcha
+
 class POST_ANTICAPTCHA:
 
     def __init__(self):
@@ -37,20 +38,18 @@ class POST_ANTICAPTCHA:
                         self.proxywork += 1
                         threading.Thread(target = PserverNA, args = (self,private_proxy,private_)).start()
                         e.wait(timeout=0.2)
-
         def PserverNA(self,proxyX,moade):
             My_proxy = re.findall( r'[0-9]+(?:\.[0-9]+){3}', proxyX['http'] )
             if int(moade) == 1:
-                My_proxy = (str(My_proxy)+' [ VPN ]')
+                My_proxy = (str(My_proxy)+' [ private ]')
             DELAY = 0
             PRoxyDie = 0
             startloop = 0
             waitkick = 0
             e = threading.Event()
             while startloop == 0:
-                #set name
-                titlechang(self)
                 try:
+                    titlechang(self)
                     IMAGE = GETIMAGE(proxyX)
                     if IMAGE != 0:
                         captcha = GETCAPCHA(key,IMAGE['base64'])
