@@ -71,12 +71,14 @@ class POST_ANTICAPTCHA:
                                 print(Style.RESET_ALL, flush=True)
                                 PRoxyDie += 1
                                 if PRoxyDie > int(failvote):
+                                    self.proxywork -=1
                                     startloop = 1
                             else:
                                 if vote['error_mesg'] == 'b4ecb33fc4dd1515eae17c9afcf8b90d': #The image has expired or has been used.
                                     log = logger.format(My_proxy,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                     print(Fore.RED+log, flush=True)
                                     print(Style.RESET_ALL, flush=True)
+                                    self.proxywork -= 1
                                     startloop = 1
                                 else:
                                     if vote['error_mesg'] == '47b84f936cfa1a104fa5d44821639363': # The code in the image is incorrect.
