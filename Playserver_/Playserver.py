@@ -25,8 +25,8 @@ class POST_ANTICAPTCHA:
                     #setmode
                     public_ = 0
                     #start threading
-                    self.proxywork += 1
                     threading.Thread(target = PserverNA, args = (self,public_proxy,public_)).start()
+                    self.proxywork += 1
             if int(private) == 1:
                 with open('control/private.txt','r') as loadVPN:
                     privatelist = loadVPN.read().splitlines()
@@ -88,19 +88,19 @@ class POST_ANTICAPTCHA:
                         else:
                             PRoxyDie += 1
                             if PRoxyDie > 10:
-                                print(str(My_proxy) + ' thsi proxy has error 101')
+                                print(('{0} thsi proxy has error 101').format(My_proxy))
                                 self.proxywork -= 1
                                 startloop = 1
                     else:
                         PRoxyDie += 1
                         if PRoxyDie > 10:
-                            print(str(My_proxy) + ' thsi proxy has error 102')
+                            print(('{0} thsi proxy has error 102').format(My_proxy))
                             self.proxywork -= 1
                             startloop = 1
                 except:
                     PRoxyDie += 1
                     if PRoxyDie > 10:
-                        print(str(My_proxy) + ' thsi proxy has error 103')
+                        print(('{0} thsi proxy has error 103').format(My_proxy))
                         self.proxywork -= 1
                         startloop = 1
 
