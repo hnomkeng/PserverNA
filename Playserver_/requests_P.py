@@ -15,7 +15,7 @@ def GETIMAGE(proxy):
         return 0
 
 
-def POSTIMAGE(votedata, proxy):
+def POSTIMAGE(self,votedata, proxy):
     for timeout in range(60):
         try:
             vote = (requests.post(url_submitpic, headers=header, data=votedata, proxies=proxy)).json()
