@@ -17,17 +17,17 @@ checkver = requests.get(path.version).json()
 if version != checkver['ver_']:
     print('PATH UPDATE NEW VERSION : '+checkver['ver_'] )
     data_anti = requests.get(path.data_anti).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     requests_A = requests.get(path.requests_A).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     data = requests.get(path.data).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     DELAY = requests.get(path.DELAY).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     Playserver = requests.get(path.Playserver).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     requests_P = requests.get(path.requests_P).content
-    time.sleep(0.5)
+    time.sleep(0.2)
     datasmuf = {
         data_anti : "Anticapcha_/data_anti.py",
         requests_A : "Anticapcha_/requests_A.py",
