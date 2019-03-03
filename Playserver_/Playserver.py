@@ -49,8 +49,6 @@ class POST_ANTICAPTCHA:
             e = threading.Event()
             while startloop == 0:
                 #set name
-                if self.true > int(maxvote):
-                    startloop += 1
                 titlechang(self)
                 try:
                     IMAGE = GETIMAGE(proxyX)
@@ -109,6 +107,8 @@ class POST_ANTICAPTCHA:
                         self.proxywork -= 1
                         startloop = 1
 
+                if self.true > int(maxvote):
+                    startloop += 1
         run(self)
 
 if __name__=='__main__':
