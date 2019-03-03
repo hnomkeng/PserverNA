@@ -45,6 +45,7 @@ class POST_ANTICAPTCHA:
             DELAY = 0
             PRoxyDie = 0
             startloop = 0
+            waitkick = 0
             e = threading.Event()
             while startloop == 0:
                 #set name
@@ -69,8 +70,8 @@ class POST_ANTICAPTCHA:
                                 log = logger.format(My_proxy,IMAGE['id'],captcha['text'],vote['status'],vote['wait'],vote['error_mesg'])
                                 print(Fore.YELLOW+log, flush=True)
                                 print(Style.RESET_ALL, flush=True)
-                                PRoxyDie += 1
-                                if PRoxyDie > int(failvote):
+                                waitkick += 1
+                                if waitkick > int(failvote):
                                     self.proxywork -=1
                                     startloop = 1
                             else:
