@@ -26,16 +26,17 @@ def POSTIMAGE(self,votedata, proxy):
                 self.true += 1
                 datax = {'status':True,  'wait':vote['wait'],  'error_mesg':0}
                 return datax
-                if vote['wait'] != 0:
-                    self.fail += 1
-                    erro_message = vote['error_msg'].encode('utf8').hex()
-                    md5_error = hashlib.md5(binascii.unhexlify(erro_message)).hexdigest()
-                    datax = {'status':False,  'wait':vote['wait'],  'error_mesg':md5_error}
-                    return datax
-                    self.fail += 1
-                    erro_message = vote['error_msg'].encode('utf8').hex()
-                    md5_error = hashlib.md5(binascii.unhexlify(erro_message)).hexdigest()
-                    datax = {'status':'error_mesg',  'error_mesg':md5_error,  'wait':vote['wait']}
-                    return datax
+            elif vote['wait'] != 0:
+                self.fail += 1
+                erro_message = vote['error_msg'].encode('utf8').hex()
+                md5_error = hashlib.md5(binascii.unhexlify(erro_message)).hexdigest()
+                datax = {'status':False,  'wait':vote['wait'],  'error_mesg':md5_error}
+                return datax
+            else:
+                self.fail += 1
+                erro_message = vote['error_msg'].encode('utf8').hex()
+                md5_error = hashlib.md5(binascii.unhexlify(erro_message)).hexdigest()
+                datax = {'status':'error_mesg',  'error_mesg':md5_error,  'wait':vote['wait']}
+                return datax
         except:
             e.wait(timeout=1)
