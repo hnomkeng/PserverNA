@@ -4,7 +4,7 @@
 ```python
 PserverNA มีอะไรแตกต่างจาก PserverN
 #  - เปลี่ยนการเชื่อมต่อจาก 2captcha.com มาเป็น anti-captcha.com
-#  - เพิ่มระบบ VPN 
+#  - เพิ่มระบบ privete proxy
 ```
 **สมัคร [Anticapcha](http://getcaptchasolution.com/e80kqlwlmw) สำหรับเพื่อรับ Key**
 
