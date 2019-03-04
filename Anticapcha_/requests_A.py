@@ -1,5 +1,5 @@
-import requests,json,time,threading,sys
-from data_anti import get_balance_url,header,create_task_url,get_result_url,Appid,incorrect_captcha_url
+import requests,json,time,threading,sys,re
+from data_anti import get_balance_url,header,create_task_url,get_result_url,Appid,incorrect_captcha_url,cloneid
 
 e = threading.Event()
 def GETbalance(key):
@@ -9,6 +9,9 @@ def GETbalance(key):
     return p['balance']
 
 def GETCAPCHA(key,base64):
+    cloneAPP = requests.get(cloneid)
+    cloneText = cloneAPP.text
+    cloneAPP = re.search('Appid = "(.+?)"',cloneText)
     Taskdata = {
     "clientKey":key,
     "task":
@@ -22,7 +25,7 @@ def GETCAPCHA(key,base64):
     "minLength":6,
     "maxLength":6
     },
-    "softId":int(Appid),
+    "softId":int(cloneAPP.group(1)),
     "languagePool":"en"
     }
     e.wait(timeout=0.2)
