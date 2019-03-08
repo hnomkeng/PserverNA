@@ -6,3 +6,4 @@ class path:
     DELAY = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/Playserver_/DELAY.py'
     Playserver = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/Playserver_/Playserver.py'
     requests_P = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/Playserver_/requests_P.py'
+    ProxyChecker = 'https://raw.githubusercontent.com/syntaxp/PserverNA/master/ProxyChecker/Proxy_checker.py'
