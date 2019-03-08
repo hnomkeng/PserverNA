@@ -14,6 +14,7 @@ class POST_ANTICAPTCHA:
         self.method_1()
     def method_1(self):
         def run(self):
+            e = threading.Event()
             self.true = 0
             self.fail = 0
             self.persen = 0
@@ -27,6 +28,7 @@ class POST_ANTICAPTCHA:
                     public_ = 0
                     #start threading
                     threading.Thread(target = PserverNA, args = (self,public_proxy,public_)).start()
+                    e.wait(timeout=0.5)
                     self.proxywork += 1
             if int(private) == 1:
                 with open('control/private.txt','r') as loadVPN:
@@ -37,6 +39,7 @@ class POST_ANTICAPTCHA:
                         private_ = 1
                         self.proxywork += 1
                         threading.Thread(target = PserverNA, args = (self,private_proxy,private_)).start()
+                        e.wait(timeout=0.5)
         def PserverNA(self,proxyX,moade):
             My_proxy = re.findall( r'[0-9]+(?:\.[0-9]+){3}', proxyX['http'] )
             if int(moade) == 1:
@@ -45,7 +48,6 @@ class POST_ANTICAPTCHA:
             PRoxyDie = 0
             startloop = 0
             waitkick = 0
-            e = threading.Event()
             while startloop == 0:
                 try:
                     titlechang(self)
