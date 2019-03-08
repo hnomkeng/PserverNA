@@ -16,24 +16,31 @@
        <a href="https://www.facebook.com/deerek.kantisriyanon.9">Facebook</a>
 </p>
 
-## Table of contents
+## คู่มือ การใช้งาน
 
 - [Quick start](#quick-start)
+- [การทำงานเบื้องต้นของโปรแกรม](basic-work)
 - [การตั่งค่า config.txt](#config)
-- [What's included](#whats-included)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Community](#community)
-- [Versioning](#versioning)
-- [Creators](#creators)
-- [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
 
 
 ## Quick start
 - [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
 - สมัครสมาชิก [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
+
+## Basic work
+
+```text
+PserverN
+|
+└──> ดึงข้อมูลจาก / Playserver.in.th
+        ├── รหัสรูปภาพ, รูปภาพ 
+        | 
+        └── > ส่งต่อรูปภาพต่อไปยัง / anti-captcha.com
+                   ├── แกะรหัสรูปภาพ
+                   |
+                   └──> ส่งกลับมาที่ PserverN ──> ส่งคำตอบไปยัง Playserver.in.th
+                            
+```
 
 ## Config
 **การตั่งค่า  [config.txt](https://github.com/syntaxp/PserverNA/blob/master/control/config.txt)**
