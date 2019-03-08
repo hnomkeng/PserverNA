@@ -20,12 +20,15 @@
 
 - [Quick start](#quick-start)
 - [การทำงานเบื้องต้นของโปรแกรม](#basic-work)
+- [KEY](#key)
 - [การตั่งค่า config.txt](#config)
 
 
 ## Quick start
 - [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
 - สมัครสมาชิก [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
+
+
 
 ## Basic work
 
@@ -41,6 +44,15 @@ PserverN
                    └──> ส่งกลับมาที่ PserverN ──> ส่งคำตอบไปยัง Playserver.in.th
                             
 ```
+
+
+## Key
+KEY จะถูกสร้างให้อตโนมัติ หลังจากที่เราเป็นสมาชิกของ ของ [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
+
+สามารถเช็ค key ของตัวเองได้ที่ [apisetup](https://anti-captcha.com/clients/settings/apisetup) (`* ต้อง login ก่อนถึงจะเข้าชมหน้าเว็ปได้`)
+
+![key](https://user-images.githubusercontent.com/47280575/54017688-5d34b000-41b9-11e9-9840-cbbcb38cf9f8.png)
+
 
 ## Config
 **การตั่งค่า  [config.txt](https://github.com/syntaxp/PserverNA/blob/master/control/config.txt)**
