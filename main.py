@@ -38,6 +38,7 @@ if version != checkver['ver_']:
         DELAY : "Playserver_/DELAY.py",
         Playserver : "Playserver_/Playserver.py",
         requests_P : "Playserver_/requests_P.py",
+        Proxy_checker : "ProxyChecker/Proxy_checker.py"
     }
     for pathx in datasmuf:
         with open(datasmuf[pathx],'wb') as w:
