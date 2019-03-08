@@ -27,6 +27,7 @@
 - [Proxylist.txt](#proxy)
 - [Private Proxy](#private-proxy)
 - [Proxy Checker](#proxy-checker)
+- [UPDATE!!](https://github.com/syntaxp/PserverNA/blob/master/update.md)
 
 ## Quick start
 - [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
