@@ -19,7 +19,7 @@
 ## Table of contents
 
 - [Quick start](#quick-start)
-- [Config](#config)
+- [การตั่งค่า config.txt](#config)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Documentation](#documentation)
@@ -32,11 +32,10 @@
 
 
 ## Quick start
-
-asdsad
+- [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
+- สมัครสมาชิก [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
 
 ## Config
-asdsad
 **การตั่งค่า  [config.txt](https://github.com/syntaxp/PserverNA/blob/master/control/config.txt)**
 
 ```python
@@ -77,7 +76,3 @@ requestfail = 10
 requesttimeout = 3
 ```
 
-
-**สมัคร [Anticaptcha](http://getcaptchasolution.com/e80kqlwlmw) สำหรับเพื่อรับ Key**
-
-**การตั่งค่า Config PserverNA: [ README.TXT](https://github.com/syntaxp/PserverNA/tree/master/control)**
