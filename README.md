@@ -6,9 +6,11 @@
 </p>
 <h3 align="center">PserverNA</h3>
 
-<p align="center">
-  PserverNA is an custom client and intelligent automated assistant for Playservern.in.th
+<p align="center"> 
+  PserverNA เป็นเพียงซอฟแวร์ที่ให้บริการเชื่อมต่อ API ของAntiCaptcha กับ เว็ป Playserver เราไม่มีการเรียกเก็บเงินใดๆ
+  เพียงแต่ผู้ใช้จำเป็นต้องเช่า KEY ของเว็ป AntiCaptcha เพื่อใช้บริการ แกะรหัส รูปภาพ เราไม่มีส่วนเกี่ยวของ กับ AntiCaptcha ในทางใดทั้งสิ้น
   <br>
+
    <a href="https://discord.gg/Mgu73TN">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSakv86QJPY-E6rxMEo_WzAwYUzyndjdY_d-Zu2ZOr9UuMjClxy5A" alt="discord logo" width="45" height="45">
   <a href="https://discord.gg/Mgu73TN">Discord</a>
@@ -22,7 +24,8 @@
 - [การทำงานเบื้องต้นของโปรแกรม](#basic-work)
 - [KEY](#key)
 - [การตั่งค่า config.txt](#config)
-
+- [Proxylist.txt](#proxy)
+- [Private Proxy](#private-proxy)
 
 ## Quick start
 - [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
@@ -94,4 +97,74 @@ failvote = 3
 requestfail = 10
 requesttimeout = 3
 ```
+## Proxy
+**[proxylist.txt](https://github.com/syntaxp/PserverNA/blob/master/control/proxylist.txt)**
+```text
+proxylist.txt จะเป็นไฟล์ txt ที่ใช้สำหรับเก็บรายชื่อ proxy ต่างๆที่ใช้สำหรับโหวต
+เนื้องจาก การโหวต Playserver ปกติ เมื่อโหวตสำเร็จ จะติดดีเลเป็นเวล 61 วิ
+เราจึงจำเป็นต้องมี proxy ใช้สำหรับโหวตเพิ่มขึ้นเพื่อการทำงานโหวตที่ไวขึ้น
+Playserver กำจัดสิทธ์โหวตให้เพียง IP ที่ให้บริการในไทย นั้นหมายความว่า เราเลือกเฉพาะ Proxy ไทยในการโหวต
 
+- สามารถหา Proxy ได้จากไหน ?
+proxy จะมี 2 แบบ 
+แบบปกติคือแจกตามเว็ปทั่วไปสามารถ search ได้จาก google 'proxy list' , 'proxy list thai'
+แบบที่ 2 จะเป็น proxy แบบเช่า ซึ่งจะยกประเด็นนี้ไปในหัวข้อ private proxy
+
+หลังจากที่เราได้ proxy มาแล้วให้เราก๊อปแล้วนำไปวางใน proxylist.txt
+```
+***example: proxylist.txt***
+```text
+103.15.140.141:44759
+103.15.140.142:44759
+103.15.140.177:44759
+103.15.226.124:80
+103.15.241.161:8080
+103.15.245.26:8080
+103.15.51.160:8080
+103.15.83.73:58486
+103.15.83.82:8080
+103.16.61.46:52424
+103.17.38.24:8080
+103.18.243.154:8080
+103.18.32.242:46734
+103.19.110.177:8080
+```
+
+## Private Proxy
+**[private.txt](https://github.com/syntaxp/PserverNA/blob/master/control/private.txt)**
+
+**[config.txt](https://github.com/syntaxp/PserverNA/blob/master/control/config.txt)**
+
+```text
+ในส่วนของ Private Proxy จะเป็นการรองรับระบบ proxy เช่า ตามเว็ปต่างๆซึ่งมีความส่วนตัวในการใช้
+หมายความว่าเวลาเราใช้โหวต proxy จะไม่ไปชนกับคนอื่น แต่ต้องดูด้วยว่าเจ้าของเว็ปที่ให้บริการเช่า ปล่อย proxy เป็นแบบ public สำหรับสมาชิกรึป่าว
+การตั่งค่าเราจำเป็นต้องเปิดใช้งานในส่วนของ config.txt หัวข้อ private เป็น 1 และใส่ email หรือ username /pass ที่เราสมัครกับทางเว็ป
+```
+***example: config.txt***
+```java
+[private] 
+private = 1
+USER = pserverna@proxyweb.com
+PASS = 12345678
+```
+
+```text
+ในส่วนของ proxy เราจะเก็บ proxy พวกนี้ไว้ใน private.txt
+```
+***example: private.txt***
+```text
+103.15.140.141:44759
+103.15.140.142:44759
+103.15.140.177:44759
+103.15.226.124:80
+103.15.241.161:8080
+103.15.245.26:8080
+103.15.51.160:8080
+103.15.83.73:58486
+103.15.83.82:8080
+103.16.61.46:52424
+103.17.38.24:8080
+103.18.243.154:8080
+103.18.32.242:46734
+103.19.110.177:8080
+```
