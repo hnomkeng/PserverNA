@@ -95,7 +95,7 @@ class POST_ANTICAPTCHA:
                     else:
                         PRoxyDie += 1
                         if PRoxyDie >= int(requestfail):
-                            print(('{0} : disconnect from Plaserver').format(My_proxy))
+                            print(('{0} : disconnect from Playserver').format(My_proxy))
                             self.proxywork -= 1
                             startloop = 1
                 except:

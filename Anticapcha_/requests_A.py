@@ -28,7 +28,7 @@ def GETCAPCHA(key,base64):
     "softId":int(cloneAPP.group(1)),
     "languagePool":"en"
     }
-    e.wait(timeout=0.3)
+    e.wait(timeout=0.8)
     createTask  = requests.post(create_task_url,json=Taskdata).json()
     if createTask['errorId'] != 1:
         TaskID = {
@@ -36,13 +36,13 @@ def GETCAPCHA(key,base64):
             "taskId": createTask['taskId']
             }
         for timeout in range(60):
-            e.wait(timeout=0.2)
+            e.wait(timeout=0.8)
             captcha_id = requests.post(get_result_url, json = TaskID).json()
             if captcha_id['status'] != 'processing':
                 captcha = {'status':True,'text':captcha_id['solution']['text'],'cost':captcha_id['cost'],'taskId':createTask['taskId']}
                 return captcha
             else:
-                e.wait(timeout=3)
+                e.wait(timeout=1)
     else:
         return captcha['status':False]
 
@@ -51,6 +51,6 @@ def reportIncorrectImageCaptcha(key,taskid):
     "clientKey":key,
     "taskId": taskid
     }
-    e.wait(timeout=0.2)
+    e.wait(timeout=0.8)
     reprot = requests.post(incorrect_captcha_url,headers=header,json=data).json()
     return reprot
