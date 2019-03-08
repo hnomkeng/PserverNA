@@ -17,7 +17,6 @@ PserverNA
           |                     └── 1 = Call Playserver_/Playserver.py
           |
           |
-          |
           └──────── @ ProxyChecker / เพิ่มโฟเดอร์ ProxyChecker
                         ├── @ Proxy_checker.py / เพิ่ม Proxy Checker Mode เช็ค proxy ไหนสามารถใช้งานได้
                         └── @ list.txt         / ไฟล์สำหรับเก็บ proxy ที่ต้องการเช็ค                            
