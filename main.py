@@ -12,7 +12,7 @@ with open('version.json','r') as r:
 strartpy  = """\nPserverNA(Anti - captcha) VERSION ("""+version+""")
 Note: PserverNA is an custom client and intelligent automated assistant for Playservern.in.th
 SUPORT : https://discord.gg/ZyPsMS
-website : https://github.com/syntaxp/PserverNA\n\n"""
+website : https://github.com/syntaxp/PserverNA\n"""
 checkver = requests.get(path.version).json()
 if version != checkver['ver_']:
     print('PATH UPDATE NEW VERSION : '+checkver['ver_'] )
@@ -28,6 +28,8 @@ if version != checkver['ver_']:
     Playserver = requests.get(path.Playserver).content
     time.sleep(0.2)
     requests_P = requests.get(path.requests_P).content
+    time.sleep(0.2)
+    Proxy_checker = requests.get(path.ProxyChecker).content
     time.sleep(0.2)
     datasmuf = {
         data_anti : "Anticapcha_/data_anti.py",
@@ -51,7 +53,20 @@ def cls():
 
 sys.path.insert(0, "Playserver_/")
 from Playserver import *
+sys.path.insert(0, "ProxyChecker/")
+from Proxy_checker import Proxychecker
 if __name__ == '__main__':
     cls()
     print(strartpy)
-    POST_ANTICAPTCHA()
+    print('[0] ProxyChecker \n[1] PserverNA Anticapcha')
+    b = input('Call function : ')
+    if b == '0':
+        cls()
+        print('[ProxyChecker Mode]')
+        Proxychecker()
+    elif b == '1':
+        cls()
+        print('[Anticapcha Mode]')
+        POST_ANTICAPTCHA()
+    else:
+        print('[' +b+' ] this not commands list ...')
