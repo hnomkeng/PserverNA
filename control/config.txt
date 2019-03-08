@@ -1,13 +1,16 @@
 [default]
-key_anticap = <anitcapcha_key>
-server_id = <server id>
-userid  = <user gmae id>
+key_anticap = <keyanticaptcha>
+server_id = <serverid>
+userid  = <userid>
 proxy = proxylist.txt
-maxvote = 1
-failvote = 3
-
 
 [private]
-private = <private proxy 0 off / 1 om>
-USER = <user proxy>
-PASS = <password proxy>
+private = <0/1 ; on/off>
+USER = <userver private proxy>
+PASS = password private proxy>
+
+[option]
+maxvote = 1000
+failvote = 5
+requestfail = 5
+requesttimeout = 5

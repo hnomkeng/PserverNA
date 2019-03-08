@@ -1,5 +1,5 @@
 import base64, requests, os, json, threading,time,sys,re
-from data import proxy,USEprivate,PASSprivate,private,titlechang,logger,key,server_id,userid,logger,failvote,maxvote
+from data import proxy,USEprivate,PASSprivate,private,titlechang,logger,key,server_id,userid,logger,failvote,maxvote,requestfail
 from requests import*
 from colorama import init, Fore, Back, Style
 from requests_P import GETIMAGE,POSTIMAGE
@@ -37,7 +37,6 @@ class POST_ANTICAPTCHA:
                         private_ = 1
                         self.proxywork += 1
                         threading.Thread(target = PserverNA, args = (self,private_proxy,private_)).start()
-                        e.wait(timeout=0.2)
         def PserverNA(self,proxyX,moade):
             My_proxy = re.findall( r'[0-9]+(?:\.[0-9]+){3}', proxyX['http'] )
             if int(moade) == 1:
@@ -70,7 +69,7 @@ class POST_ANTICAPTCHA:
                                 print(Fore.YELLOW+log, flush=True)
                                 print(Style.RESET_ALL, flush=True)
                                 waitkick += 1
-                                if waitkick > int(failvote):
+                                if waitkick >= int(failvote):
                                     self.proxywork -=1
                                     startloop = 1
                             else:
@@ -89,25 +88,27 @@ class POST_ANTICAPTCHA:
                                             print(Style.RESET_ALL, flush=True)
                         else:
                             PRoxyDie += 1
-                            if PRoxyDie > 10:
-                                print(('{0} thsi proxy has error 101').format(My_proxy))
+                            if PRoxyDie >= int(requestfail):
+                                print(('{0} : disconnect from Anticapcha server').format(My_proxy))
                                 self.proxywork -= 1
                                 startloop = 1
                     else:
                         PRoxyDie += 1
-                        if PRoxyDie > 10:
-                            print(('{0} thsi proxy has error 102').format(My_proxy))
+                        if PRoxyDie >= int(requestfail):
+                            print(('{0} : disconnect from Plaserver').format(My_proxy))
                             self.proxywork -= 1
                             startloop = 1
                 except:
                     PRoxyDie += 1
-                    if PRoxyDie > 10:
-                        print(('{0} thsi proxy has error 103').format(My_proxy))
+                    if PRoxyDie >= int(requestfail):
+                        print(('{0} : disconnect from network').format(My_proxy))
                         self.proxywork -= 1
                         startloop = 1
 
-                if self.true > int(maxvote):
+                if self.true >= int(maxvote):
                     startloop += 1
+
+
         run(self)
 
 if __name__=='__main__':

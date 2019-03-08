@@ -9,13 +9,14 @@ def restart_program():
 with open('version.json','r') as r:
     ver = json.load(r)
     version = ver['ver_']
-strartpy  = """\n    PserverNA(Anti - captcha) VERSION ("""+version+""")
-    Note: PserverNA is an custom client and intelligent automated assistant for Playservern.in.th
-    SUPORT : https://discord.gg/ZyPsMS
-    website : https://github.com/syntaxp/PserverNA"""
+strartpy  = """\nPserverNA(Anti - captcha) VERSION ("""+version+""")
+Note: PserverNA is an custom client and intelligent automated assistant for Playservern.in.th
+SUPORT : https://discord.gg/ZyPsMS
+website : https://github.com/syntaxp/PserverNA\n\n"""
 checkver = requests.get(path.version).json()
 if version != checkver['ver_']:
     print('PATH UPDATE NEW VERSION : '+checkver['ver_'] )
+    print('Note Update : ' + checkver['Note_'])
     data_anti = requests.get(path.data_anti).content
     time.sleep(0.2)
     requests_A = requests.get(path.requests_A).content

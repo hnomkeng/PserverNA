@@ -11,8 +11,10 @@ key = loadconfig.get('default', 'key_anticap')
 userid = loadconfig.get('default', 'userid')
 server_id = loadconfig.get('default', 'server_id')
 proxy = loadconfig.get('default', 'proxy')
-maxvote = loadconfig.get('default','maxvote')
-failvote = loadconfig.get('default','failvote')
+maxvote = loadconfig.get('option','maxvote')
+failvote = loadconfig.get('option','failvote')
+requestfail = loadconfig.get('option','requestfail')
+requesttimeout = loadconfig.get('option','requesttimeout')
 private = loadconfig.get('private','private')
 USEprivate= loadconfig.get('private','USER')
 PASSprivate = loadconfig.get('private','PASS')
@@ -44,5 +46,5 @@ def titlechang(self):
     if self.true != 0 or self.fail != 0:
         fianl = self.true+self.fail
         self.persen = self.true/fianl*100
-    j = (' {0} :  S{1} - Proxy:[ {2} ]  ,True_ ({3}) ,False_ ({4}) ,SUCCESS({5}%),  {6}$   - PserverN').format(userid,server_id,self.proxywork,self.true,self.fail,"%.2f"%self.persen,balance)
+    j = (' {0} :  S{1} - Proxy:[ {2} ]  ,True_ ({3}) ,False_ ({4}) ,SUCCESS({5}%),  {6}$   - PserverNA').format(userid,server_id,self.proxywork,self.true,self.fail,"%.2f"%self.persen,balance)
     ctypes.windll.kernel32.SetConsoleTitleW(j)

@@ -28,7 +28,7 @@ def GETCAPCHA(key,base64):
     "softId":int(cloneAPP.group(1)),
     "languagePool":"en"
     }
-    e.wait(timeout=0.2)
+    e.wait(timeout=0.3)
     createTask  = requests.post(create_task_url,json=Taskdata).json()
     if createTask['errorId'] != 1:
         TaskID = {
@@ -53,5 +53,4 @@ def reportIncorrectImageCaptcha(key,taskid):
     }
     e.wait(timeout=0.2)
     reprot = requests.post(incorrect_captcha_url,headers=header,json=data).json()
-    e.wait(timeout=0.2)
     return reprot
