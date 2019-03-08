@@ -26,6 +26,7 @@
 - [การตั่งค่า config.txt](#config)
 - [Proxylist.txt](#proxy)
 - [Private Proxy](#private-proxy)
+- [Proxy Checker](#proxy-checker)
 
 ## Quick start
 - [Download the latest release.](https://github.com/syntaxp/PserverNA/archive/master.zip)
@@ -50,7 +51,7 @@ PserverN
 
 
 ## Key
-KEY จะถูกสร้างให้อตโนมัติ หลังจากที่เราเป็นสมาชิกของ ของ [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
+KEY จะถูกสร้างให้อัตโนมัติ หลังจากที่เราเป็นสมาชิกของ ของ [anti-captcha.com](http://getcaptchasolution.com/e80kqlwlmw) 
 
 สามารถเช็ค key ของตัวเองได้ที่ [apisetup](https://anti-captcha.com/clients/settings/apisetup) (`* ต้อง login ก่อนถึงจะเข้าชมหน้าเว็ปได้`)
 
@@ -168,3 +169,11 @@ PASS = 12345678
 103.18.32.242:46734
 103.19.110.177:8080
 ```
+## Proxy Checker
+proxy checker mode จะเป็นการ เช็ค proxy ที่อยู่ในไฟล์ **[list.txt](https://github.com/syntaxp/PserverNA/blob/master/ProxyChecker/list.txt)**
+
+โดย proxy ที่ใช้งานได้จะถูกเก็บไปยัง ไฟล์ **[proxylist.txt](https://github.com/syntaxp/PserverNA/blob/master/control/proxylist.txt)** อัตโนมัติ
+
+![proxy checker](https://user-images.githubusercontent.com/47280575/54040675-8c1e4680-41f8-11e9-8a7b-79fe3147d1cd.png)
+
+
