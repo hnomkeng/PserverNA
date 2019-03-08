@@ -1,11 +1,83 @@
-![asc](https://user-images.githubusercontent.com/47280575/53546415-d7808700-3b5e-11e9-9bfa-3c53d32d22a4.png)
 
-### PserverNA
+<p align="center">
+  <a href="https://github.com/syntaxp/PserverNA">
+    <img src="https://user-images.githubusercontent.com/47280575/54013280-1b047200-41ab-11e9-8419-7d478f197228.png" alt="PserverNA logo" width="72" height="72">
+  </a>
+</p>
+<h3 align="center">PserverNA</h3>
+
+<p align="center">
+  PserverNA is an custom client and intelligent automated assistant for Playservern.in.th
+  <br>
+   <a href="https://discord.gg/Mgu73TN">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSakv86QJPY-E6rxMEo_WzAwYUzyndjdY_d-Zu2ZOr9UuMjClxy5A" alt="discord logo" width="45" height="45">
+  <a href="https://discord.gg/Mgu73TN">Discord</a>
+   ·
+       <a href="https://www.facebook.com/deerek.kantisriyanon.9">Facebook</a>
+</p>
+
+## Table of contents
+
+- [Quick start](#quick-start)
+- [Config](#config)
+- [What's included](#whats-included)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Community](#community)
+- [Versioning](#versioning)
+- [Creators](#creators)
+- [Thanks](#thanks)
+- [Copyright and license](#copyright-and-license)
+
+
+## Quick start
+
+asdsad
+
+## Config
+asdsad
+**การตั่งค่า  [config.txt](https://github.com/syntaxp/PserverNA/blob/master/control/config.txt)**
+
 ```python
-PserverNA มีอะไรแตกต่างจาก PserverN
-#  - เปลี่ยนการเชื่อมต่อจาก 2captcha.com มาเป็น anti-captcha.com
-#  - เพิ่มระบบ privete proxy
+[default]
+key_anticap = # key ของ Anticaptcha
+server_id = # sever id ตัวอย่าง url <playserver.in.th/index.php/Vote/prokud/PserverN-15282> id sever คือ 15282
+userid  = #user id ของเกม
+proxy = proxylist.txt # ไฟล์ที่ทำการเก็บ List proxy ไว้
+
+[private] # ระะบบ private proxy หรือ proxy ที่เช่าจากเว็ป
+private = # 0 = ปิด 1 = เปิด
+USER = #user ของเว็ปที่เช่า (ส่วนมากใช่เป็น email)
+PASS = #pssword ของเว็ปที่เช่า
+
+[option]
+maxvote = # จำนวนโหวตที่ต้องการ ควรมากกว่ ip ที่มีใน list
+failvote = # จำนวนครั้งที่ ip โหวตพลาด ระบบจะเตะ ip ออก
+requestfail = # จำนวครั้งที่ ip พยามเชื่อมต่อไม่สำเร็จ ระบบจะเตะ ip ออก
+requesttimeout = # ระยะเวลาในการทำงานเรียกข้อมูล ส่งข้อมูล ควรตั่งให้มากกว่า 3 ขึ้นไป
 ```
-**สมัคร [Anticapcha](http://getcaptchasolution.com/e80kqlwlmw) สำหรับเพื่อรับ Key**
+***example: config.txt***
+```java
+[default]
+key_anticap = d2ed549112be82d92add5c9bf7f1cb57
+server_id = 15282
+userid  = pserverna
+proxy = proxylist.txt
+
+[private] 
+private = 0
+USER = off
+PASS = off
+
+[option]
+maxvote = 1000
+failvote = 3
+requestfail = 10
+requesttimeout = 3
+```
+
+
+**สมัคร [Anticaptcha](http://getcaptchasolution.com/e80kqlwlmw) สำหรับเพื่อรับ Key**
 
 **การตั่งค่า Config PserverNA: [ README.TXT](https://github.com/syntaxp/PserverNA/tree/master/control)**
