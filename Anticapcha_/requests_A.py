@@ -42,7 +42,7 @@ def GETCAPCHA(key,base64):
                 captcha = {'status':True,'text':captcha_id['solution']['text'],'cost':captcha_id['cost'],'taskId':createTask['taskId']}
                 return captcha
             else:
-                e.wait(timeout=1)
+                e.wait(timeout=2)
     else:
         return captcha['status':False]
 
