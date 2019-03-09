@@ -6,7 +6,7 @@ from requests_P import GETIMAGE,POSTIMAGE
 from DELAY import *
 sys.path.insert(0, "Anticapcha_/")
 from requests_A import GETCAPCHA,reportIncorrectImageCaptcha
-
+e = threading.Event()
 class POST_ANTICAPTCHA:
 
     def __init__(self):
@@ -14,7 +14,6 @@ class POST_ANTICAPTCHA:
         self.method_1()
     def method_1(self):
         def run(self):
-            e = threading.Event()
             self.true = 0
             self.fail = 0
             self.persen = 0
