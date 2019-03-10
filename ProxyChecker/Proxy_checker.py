@@ -14,7 +14,6 @@ class Proxychecker:
                     public_proxy = {'http': ('http://'+Iproxy),
                                'https': ('https://'+Iproxy)}
                     threading.Thread(target = checkproxy, args = (self,public_proxy)).start()
-                    e.wait(timeout=0.5)
         def checkproxy(self,proxyX):
 
             barbarpoxy = re.findall( r'[0-9]+(?:\.[0-9]+){3}.+', proxyX['http'] )
@@ -39,5 +38,5 @@ class Proxychecker:
                     if fail_check >= 3:
                         checkstatus += 1
 
-        
+
         run(self)
